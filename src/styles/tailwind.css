@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply bg-black text-green-400; }
+  body { @apply min-h-screen; }
+}
+
+@layer utilities {
+  .crt {
+    position: relative;
+    filter: contrast(1.05) saturate(1.2);
+  }
+  .crt::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.08) 50%);
+    background-size: 100% 2px;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+}
+
+
