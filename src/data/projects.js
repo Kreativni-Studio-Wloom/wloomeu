@@ -6,6 +6,7 @@ export const projects = [
   { id: 5, name: 'Bulldogo', url: 'https://bulldogo.cz' },
   { id: 6, name: 'Ejdry.cz', url: 'https://ejdry.cz' },
   { id: 7, name: 'uctarna.fun', url: 'https://uctarna.fun' },
+  { id: 8, name: 'Raj mazlicku', url: 'https://rajmazlicku.vercel.app' },
 ]
 
 export const contact = {

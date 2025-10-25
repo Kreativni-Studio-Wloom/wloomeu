@@ -21,12 +21,6 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [muted, setMuted] = useState(false)
   const audioClickRef = useRef(null)
-  const [theme, setTheme] = useState('dark')
-
-  useEffect(() => {
-    if (theme === 'dark') document.documentElement.classList.add('dark')
-    else document.documentElement.classList.remove('dark')
-  }, [theme])
 
   const items = useMemo(() => {
     const projNodes = baseProjects.map(p => ({ ...p, type: 'project' }))
@@ -85,7 +79,6 @@ export default function App() {
             <a href="tel:+420601233000" className="hover:underline">+420 601 233 000</a>
             <div className="w-px h-5 bg-green-700/50" />
             <button onClick={() => setMuted(m => !m)} className="px-2 py-1 border border-green-700/50 hover:bg-green-700/10">{muted ? '🔇' : '🔊'}</button>
-            <button onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')} className="px-2 py-1 border border-green-700/50 hover:bg-green-700/10">{theme === 'dark' ? '🌙' : '☀️'}</button>
           </div>
         </div>
       </header>

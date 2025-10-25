@@ -131,6 +131,12 @@ export default function Preview({ project, onClose }) {
           <div>heslo: <span className="text-green-300">test123</span></div>
         </div>
       )}
+      {project?.url?.includes('vercel.app') && (
+        <div className="absolute top-2 left-2 z-10 text-xs sm:text-sm bg-black/70 border border-green-700/60 px-2 py-1">
+          <div>Náhled může být blokován bezpečnostními nastaveními</div>
+          <div>Klikněte na "Open" pro zobrazení v novém okně</div>
+        </div>
+      )}
       {!blocked ? (
         <div ref={containerRef} className="w-full h-full flex items-center justify-center overflow-auto">
           <div className="relative" style={{ width: box.w, height: box.h }}>
@@ -146,7 +152,12 @@ export default function Preview({ project, onClose }) {
         </div>
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center text-center gap-3">
-          <div className="text-green-500">Preview not available — open in new tab</div>
+          <div className="text-green-500">
+            {project?.url?.includes('vercel.app') 
+              ? 'Náhled blokován bezpečnostními nastaveními Vercel' 
+              : 'Preview not available — open in new tab'
+            }
+          </div>
           <a href={currentUrl} target="_blank" rel="noopener noreferrer" className="px-3 py-2 border border-green-700/50 hover:bg-green-700/10">Open</a>
         </div>
       )}
